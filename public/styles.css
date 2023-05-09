@@ -1,10 +1,10 @@
 /** FONTS**/
-@import url("https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Poppins&family=Rubik:wght@400;600;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Poppins&family=Raleway:wght@100;400&family=Rubik:wght@400;600;700&display=swap");
 /**
 font-family: 'Lato', sans-serif;
 font-family: 'Montserrat', sans-serif;
 font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
 font-family: 'Rubik', sans-serif;
 **/
 
@@ -110,15 +110,23 @@ body {
 
   background-color: #100e1d;
 
-  padding: 1.5rem;
+  padding: 0 1.5rem;
 }
 .tools-temp {
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .tools-temp i {
   color: #fff;
   font-size: 1.6rem;
+}
+
+.temp-max {
+  color: #fff;
+}
+
+.temp-min {
+  color: #afafaf;
 }
 
 .temp-option {
@@ -130,7 +138,8 @@ body {
 .celcius-btn,
 .farinheight-btn {
   padding: 0.6rem;
-  background-color: #fff;
+  background-color: #565657;
+  color: #fff;
   border-radius: 60%;
   font-weight: 600;
   cursor: pointer;
@@ -138,7 +147,8 @@ body {
 
 /** LIST*/
 .days-list {
-  color: #979797;
+  color: #e7e7eb;
+  font-family: "Raleway", sans-serif;
 
   display: flex;
   justify-content: space-between;
@@ -176,9 +186,16 @@ body {
 }
 
 .hightlights-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1rem 5rem;
+  /* justify-items: center; */
+}
+.hightlights-status {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .wind-status,
@@ -188,14 +205,17 @@ body {
   background-color: #1e213a;
   border-radius: 0.2rem;
   padding: 1rem;
+  text-align: center;
+  color: #e7e7eb;
 }
 
 .wind-status p,
 .humidity p,
 .visibility p,
-.air-pressure p{
+.air-pressure p {
   font-size: 2.3rem;
   font-weight: 600;
+  font-family: Raleway;
 }
 
 .footer {
@@ -203,4 +223,38 @@ body {
   color: #000000;
   display: block;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .slide {
+    grid-column: 1/3;
+    grid-row: 1/2;
+    padding-bottom: 3rem;
+  }
+
+  .main-content {
+    grid-column: 1/3;
+    grid-row: 2/2;
+  }
+  .days-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .days-list li {
+    width: 90%;
+    font-size: 1.8rem;
+  }
+  .days-list li img {
+    height: auto;
+  }
+}
+
+/** MORE DESINGS **/
+
+.isActive {
+  background-color: #fcfcfc;
+  color: #000000;
+  border: 2px solid #b3b3b3;
 }

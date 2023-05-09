@@ -5,15 +5,15 @@ import Slide from "./components/Slide/Slide";
 import MainContent from "./components/MainContent/MainContent";
 
 function App() {
-  const [weather, setWeather] = useState(null);
+  const [currentWeather, setCurrentWeather] = useState(null);
 
   const apiKey = "f51c12c35ede56c3b82501879e911ea6";
-  const url = `https://api.openweathermap.org/data/2.5/weather?id=3433955&appid=${apiKey}&lang=es&units=metric`;
+  const urlCurrentWeather = `https://api.openweathermap.org/data/2.5/weather?id=3433955&appid=${apiKey}&lang=es&units=metric`;
 
   // Imperial fahrenheit
 
   const getData = async () => {
-    const response = await fetch(url);
+    const response = await fetch(urlCurrentWeather);
     const result = await response.json();
 
     console.log(result);
@@ -23,16 +23,16 @@ function App() {
 
   useEffect(() => {
     getData().then((data) => {
-      setWeather(data);
+      setCurrentWeather(data);
     });
   }, []);
 
   return (
     <div>
       <div className="container">
-        {weather && <Slide data={weather} />}
+        {currentWeather && <Slide data={currentWeather} />}
 
-        {weather && <MainContent data={weather} />}
+        {currentWeather && <MainContent data={currentWeather} />}
       </div>
       <small className="footer">
         Created by Emerson Medina - Frontend developer

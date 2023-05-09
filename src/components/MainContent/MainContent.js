@@ -6,7 +6,7 @@ export default function MainContent({ data }) {
       <div className="tools-temp">
         <i className="fa-solid fa-temperature-quarter"></i>
         <div className="temp-option">
-          <div className="celcius-btn">°C</div>
+          <div className="celcius-btn isActive">°C</div>
           <div className="farinheight-btn">°F</div>
         </div>
       </div>
@@ -24,26 +24,26 @@ export default function MainContent({ data }) {
           <li>
             <p>Sunday</p>
             <img src="./tools/LightCloud.png" alt="" />
-            <p className="temp-max">Max</p>
-            <p className="temp-min">Min</p>
+            <p className="temp-max">17°C</p>
+            <p className="temp-min">12°C</p>
           </li>
           <li>
-            <p>Tomorrow</p>
+            <p>Monday</p>
             <img src="./tools/Clear.png" alt="" />
-            <p className="temp-max">Max</p>
-            <p className="temp-min">Min</p>
+            <p className="temp-max">15°C</p>
+            <p className="temp-min">11°C</p>
           </li>
           <li>
-            <p>Tomorrow</p>
+            <p>Tuesday</p>
             <img src="./tools/Shower.png" alt="" />
-            <p className="temp-max">Max</p>
-            <p className="temp-min">Min</p>
+            <p className="temp-max">14°C</p>
+            <p className="temp-min">8°C</p>
           </li>
           <li>
-            <p>Tomorrow</p>
+            <p>Wednesday </p>
             <img src="./tools/LightCloud.png" alt="" />
-            <p className="temp-max">Max</p>
-            <p className="temp-min">Min</p>
+            <p className="temp-max">18°C</p>
+            <p className="temp-min">15°C</p>
           </li>
         </ul>
       </div>
@@ -54,29 +54,34 @@ export default function MainContent({ data }) {
         <div className="hightlights-items">
           <div className="wind-status">
             <h4>Wind Status</h4>
-            <p>
-              {data.wind.speed} <small>m/s</small>
-            </p>
+            <div className="hightlights-status">
+              <p>{data.wind.speed}</p>
+              <small>m/s</small>
+            </div>
           </div>
 
           <div className="humidity">
             <h4>Humidity</h4>
-            <p> {data.main.humidity} %</p>
+            <div className="hightlights-status">
+              <p> {data.main.humidity}</p>
+              <small>%</small>
+            </div>
           </div>
 
           <div className="visibility">
             <h4>Visibility</h4>
-            <p>
-              {data.visibility}
+            <div className="hightlights-status">
+              <p>{data.visibility}</p>
               <small>miles</small>
-            </p>
+            </div>
           </div>
 
           <div className="air-pressure">
             <h4>Air Pressure</h4>
-            <p>
-              {data.main.pressure} <small>mb</small>
-            </p>
+            <div className="hightlights-status">
+              <p>{data.main.pressure}</p>
+              <small>mb</small>
+            </div>
           </div>
         </div>
       </div>
