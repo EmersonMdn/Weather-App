@@ -23,6 +23,9 @@ body {
   grid-template-rows: min-content 1fr;
   min-height: 100vh;
   font-family: "Montserrat", sans-serif;
+  margin: 0 1rem;
+  border: red 1px solid;
+  overflow: hidden;
 }
 
 .slide {
@@ -226,6 +229,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
   .slide {
     grid-column: 1/3;
     grid-row: 1/2;
