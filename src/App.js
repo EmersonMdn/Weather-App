@@ -4,10 +4,11 @@ import "./App.css";
 import Slide from "./components/Slide/Slide";
 import MainContent from "./components/MainContent/MainContent";
 
+
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
 
-  const apiKey = process.env.API_KEY;
+  const apiKey = process.env.REACT_APP_API_KEY;
   const urlCurrentWeather = `https://api.openweathermap.org/data/2.5/weather?id=3433955&appid=${apiKey}&lang=es&units=metric`;
 
   // Imperial fahrenheit
