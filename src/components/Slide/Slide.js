@@ -50,9 +50,9 @@ function Slide({ data }) {
         </div>
 
         <div className="location-container">
-          <i className="fa-solid fa-location-dot"></i>
+          <i className="fa-solid fa-location-dot"></i>{" "}
           <span>
-            {data.name}, {data.sys.country}{" "}
+            {data.name}, {data.sys.country}
           </span>
         </div>
       </div>
