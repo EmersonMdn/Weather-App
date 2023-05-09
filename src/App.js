@@ -7,7 +7,7 @@ import MainContent from "./components/MainContent/MainContent";
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
 
-  const apiKey = "f51c12c35ede56c3b82501879e911ea6";
+  const apiKey = process.env.API_KEY;
   const urlCurrentWeather = `https://api.openweathermap.org/data/2.5/weather?id=3433955&appid=${apiKey}&lang=es&units=metric`;
 
   // Imperial fahrenheit
@@ -15,9 +15,6 @@ function App() {
   const getData = async () => {
     const response = await fetch(urlCurrentWeather);
     const result = await response.json();
-
-    console.log(result);
-
     return result;
   };
 
