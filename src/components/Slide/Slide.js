@@ -1,10 +1,10 @@
-function Slide({ data }) {
+function Slide({ data, unit }) {
   return (
     <div className="slide">
       <div className="tools">
         <div className="tools-items">
-          <button className="btn-search">Search for places </button>
-          <i className="fa-solid fa-location-crosshairs"></i>
+          {/* <button className="btn-search">Search for places </button> */}
+          <i className="fa-solid fa-location-crosshairs" title={data.name}></i>
         </div>
       </div>
 
@@ -31,12 +31,15 @@ function Slide({ data }) {
             </g>
           </svg>
         </div>
+        {/* <div id="cloud">
+          <span class="shadow"></span>
+        </div> */}
       </div>
 
       <div className="temp">
         <div className="temp-txt">
           <h1>{parseInt(data.main.temp)}</h1>
-          <span>°C</span>
+          <span>{unit === "metric" ? "°C" : "°F"}</span>
         </div>
         <h2 className="day-status">{data.weather[0].description}</h2>
       </div>
@@ -45,7 +48,7 @@ function Slide({ data }) {
         <div className="day-container">
           <p>Today</p>
           <span>
-            {new Date().getDate()}/{new Date().getMonth()}
+            {new Date().getDate()} / {new Date().getMonth()}
           </span>
         </div>
 

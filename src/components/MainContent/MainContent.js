@@ -1,13 +1,37 @@
 import React from "react";
 
-export default function MainContent({ data }) {
+export default function MainContent({ data, unit, setUnit }) {
+  const changeToFahrengeith = () => {
+    document.getElementById("celcius-btn").classList.remove("isActive");
+    document.getElementById("fahrengeith-btn").classList.add("isActive");
+    setUnit("imperial");
+  };
+
+  const changeToCelcius = () => {
+    document.getElementById("fahrengeith-btn").classList.remove("isActive");
+    document.getElementById("celcius-btn").classList.add("isActive");
+    setUnit("metric");
+  };
+
   return (
     <div className="main-content">
       <div className="tools-temp">
         <i className="fa-solid fa-temperature-quarter"></i>
-        <div className="temp-option">
-          <div className="celcius-btn isActive">°C</div>
-          <div className="farinheight-btn">°F</div>
+        <div className="temp-options">
+          <div
+            id="celcius-btn"
+            className="celcius-btn option-temp isActive"
+            onClick={changeToCelcius}
+          >
+            <p>°C</p>
+          </div>
+          <div
+            id="fahrengeith-btn"
+            className="farinheight-btn option-temp"
+            onClick={changeToFahrengeith}
+          >
+            <p>°F</p>
+          </div>
         </div>
       </div>
 
@@ -17,33 +41,62 @@ export default function MainContent({ data }) {
             <p>Tomorrow</p>
             <img src="./tools/Shower.png" alt="" />
             <div className="min-max">
-              <p className="temp-max">{parseInt(data.main.temp_max)}°C</p>
-              <p className="temp-min">{parseInt(data.main.temp_min)}°C</p>
+              <p className="temp-max">
+                {parseInt(data.main.temp_max)}
+                <span>{unit === "metric" ? "°C" : "°F"}</span>
+              </p>
+              <p className="temp-min">
+                {parseInt(data.main.temp_min)}
+                <span>{unit === "metric" ? "°C" : "°F"}</span>
+              </p>
             </div>
           </li>
           <li>
             <p>Sunday</p>
             <img src="./tools/LightCloud.png" alt="" />
-            <p className="temp-max">17°C</p>
-            <p className="temp-min">12°C</p>
+            <p className="temp-max">
+              17
+              <span>{unit === "metric" ? "°C" : "°F"}</span>
+            </p>
+            <p className="temp-min">
+              12
+              <span>{unit === "metric" ? "°C" : "°F"}</span>
+            </p>
           </li>
           <li>
             <p>Monday</p>
             <img src="./tools/Clear.png" alt="" />
-            <p className="temp-max">15°C</p>
-            <p className="temp-min">11°C</p>
+            <p className="temp-max">
+              15
+              <span>{unit === "metric" ? "°C" : "°F"}</span>
+            </p>
+            <p className="temp-min">
+              11
+              <span>{unit === "metric" ? "°C" : "°F"}</span>
+            </p>
           </li>
           <li>
             <p>Tuesday</p>
             <img src="./tools/Shower.png" alt="" />
-            <p className="temp-max">14°C</p>
-            <p className="temp-min">8°C</p>
+            <p className="temp-max">
+              14
+              <span>{unit === "metric" ? "°C" : "°F"}</span>
+            </p>
+            <p className="temp-min">
+              8<span>{unit === "metric" ? "°C" : "°F"}</span>
+            </p>
           </li>
           <li>
             <p>Wednesday </p>
             <img src="./tools/LightCloud.png" alt="" />
-            <p className="temp-max">18°C</p>
-            <p className="temp-min">15°C</p>
+            <p className="temp-max">
+              18
+              <span>{unit === "metric" ? "°C" : "°F"}</span>
+            </p>
+            <p className="temp-min">
+              15
+              <span>{unit === "metric" ? "°C" : "°F"}</span>
+            </p>
           </li>
         </ul>
       </div>
@@ -56,7 +109,7 @@ export default function MainContent({ data }) {
             <h4>Wind Status</h4>
             <div className="hightlights-status">
               <p>{data.wind.speed}</p>
-              <small>m/s</small>
+              <small>{unit === "metric" ? "M/S" : "M/H"}</small>
             </div>
           </div>
 
@@ -80,7 +133,7 @@ export default function MainContent({ data }) {
             <h4>Air Pressure</h4>
             <div className="hightlights-status">
               <p>{data.main.pressure}</p>
-              <small>mb</small>
+              <small>hPa</small>
             </div>
           </div>
         </div>

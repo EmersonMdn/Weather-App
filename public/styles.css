@@ -23,7 +23,7 @@ body {
   grid-template-rows: min-content 1fr;
   min-height: 100vh;
   font-family: "Montserrat", sans-serif;
-  margin: 1rem  1rem 0 1rem;
+  margin: 1rem 1rem 0 1rem;
   overflow: hidden;
 }
 
@@ -34,11 +34,25 @@ body {
   background-color: #1e213a;
   text-align: center;
   color: #b3b3b3;
+
+  animation-name: entri-up;
+  animation-duration: 1000ms;
+}
+
+.logo {
+  overflow: hidden;
 }
 
 .logo-svg svg {
   height: 15rem;
   margin: 3.5rem 0.5rem 0.9rem 0.5rem;
+  z-index: 5;
+  transition: 300ms ease-in-out;
+}
+
+.logo-svg svg:hover,
+.logo-svg svg:active {
+  transform: scale(1.05);
 }
 
 .temp-txt {
@@ -64,10 +78,15 @@ body {
 
 /** TOOLS */
 
-.tools-items,
 .tools-temp {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.4rem;
+}
+.tools-items {
+  display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   padding: 1rem 2.4rem;
 }
@@ -81,12 +100,20 @@ body {
 
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  color: #fff;
+  color: #3b3b3b;
 
-  background-color: #979797;
+  background-color: #b8b6b6;
   -webkit-box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.28);
   -moz-box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.28);
   box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.28);
+
+  transition: 500ms ease;
+}
+
+.tools-items button:hover {
+  transform: scale(1.05);
+  background-color: #555555;
+  color: #fff;
 }
 
 .tools-items i {
@@ -102,6 +129,13 @@ body {
 
   font-size: 1.4rem;
   color: #1e1e20;
+  transition: 200ms ease;
+}
+
+.tools-items i:hover {
+  transform: scale(1.1);
+  background-color: #555555;
+  color: #fff;
 }
 
 /** MAIN CONTENT **/
@@ -123,6 +157,11 @@ body {
   font-size: 1.6rem;
 }
 
+.weather-list {
+  animation-name: entri-up;
+  animation-duration: 1000ms;
+}
+
 .temp-max {
   color: #fff;
 }
@@ -131,7 +170,7 @@ body {
   color: #afafaf;
 }
 
-.temp-option {
+.temp-options {
   display: flex;
   color: #000000;
   gap: 1rem;
@@ -139,12 +178,18 @@ body {
 
 .celcius-btn,
 .farinheight-btn {
-  padding: 0.6rem;
+  padding: 0.7rem;
   background-color: #565657;
   color: #fff;
-  border-radius: 60%;
+  border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
+  text-align: center;
+}
+
+.celcius-btn:hover,
+.farinheight-btn:hover {
+  transform: scale(1.05);
 }
 
 /** LIST*/
@@ -167,12 +212,21 @@ body {
   text-align: center;
   margin: 0.4rem;
   width: 7.7rem;
+  transition: 400ms ease;
+}
+.days-list li:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.days-list li:hover img {
+  transform: scale(1.4);
 }
 
 .days-list li img {
   height: 3.5rem;
   object-fit: cover;
   padding: 0.5rem;
+  transition: 400ms ease;
 }
 .days-list li p {
   padding: 0.4rem 0;
@@ -181,6 +235,8 @@ body {
 /** HIGHTLIGHTS **/
 .hightlights {
   color: #979797;
+  animation-name: entri-down;
+  animation-duration: 1000ms;
 }
 .today-hightlights-h3 {
   color: #fff;
@@ -287,8 +343,87 @@ body {
 
 /** MORE DESINGS **/
 
+.temp-option {
+  display: inline-block;
+}
+
 .isActive {
   background-color: #fcfcfc;
   color: #000000;
   border: 2px solid #b3b3b3;
 }
+
+@keyframes entri-up {
+  0% {
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes entri-down {
+  0% {
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* 
+#cloud:after {
+  width: 80px;
+  height: 80px;
+  top: -50px;
+  left: 20px;
+  border-radius: 100px;
+}
+
+#cloud:before {
+  width: 100px;
+  height: 100px;
+  top: -64px;
+  right:20px;
+  border-radius: 200px;
+}
+
+#cloud:after,
+#cloud:before {
+  content: "";
+  position: absolute;
+  background: #fff;
+  z-index: 11;
+}
+
+#cloud {
+  width: 180px;
+  height: 50px;
+  background: #bff;
+  background: linear-gradient(top, #bff 5%, #dff 100%);
+  background: -webkit-linear-gradient(top, #fff 1%, #bff 100%);
+  background: -moz-linear-gradient(top, #bff 5%, #dff 100%);
+  background: -ms-linear-gradient(top, #bff 5%, #dff 100%);
+  background: -o-linear-gradient(top, #bff 5%, #dff 100%);
+  top: 60px;
+  left: 350px;
+  border-radius: 100px;
+  position: absolute;
+  margin: 120px auto 20px;
+  z-index: 1;
+}
+
+.shadow {
+  width: 150px;
+  position: absolute;
+  bottom: -10px;
+  background: #000;
+  z-index: -1;
+  box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+} */
