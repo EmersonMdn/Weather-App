@@ -43,15 +43,20 @@ body {
   overflow: hidden;
 }
 
-.logo-svg svg {
-  height: 15rem;
-  margin: 3.5rem 0.5rem 0.9rem 0.5rem;
-  z-index: 5;
+.logo-svg {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+.logo-svg img {
   transition: 300ms ease-in-out;
+  height: 9rem;
+  width: 100%;
+  object-fit: contain;
 }
 
-.logo-svg svg:hover,
-.logo-svg svg:active {
+.logo-svg img:hover,
+.logo-svg img:active {
   transform: scale(1.05);
 }
 

@@ -34,7 +34,7 @@ export default function MainContent({ data, unit, setUnit }) {
           </div>
         </div>
       </div>
-
+      {/* 
       <div className="weather-list">
         <ul className="days-list">
           <li>
@@ -99,7 +99,7 @@ export default function MainContent({ data, unit, setUnit }) {
             </p>
           </li>
         </ul>
-      </div>
+      </div> */}
 
       <div className="hightlights">
         <h3 className="today-hightlights-h3">Today's Hightlights</h3>
@@ -108,7 +108,9 @@ export default function MainContent({ data, unit, setUnit }) {
           <div className="wind-status">
             <h4>Wind Status</h4>
             <div className="hightlights-status">
-              <p>{data.wind.speed}</p>
+              <p>
+                <i class="fa-solid fa-wind"></i> {data.wind.speed}
+              </p>
               <small>{unit === "metric" ? "M/S" : "M/H"}</small>
             </div>
           </div>
@@ -116,7 +118,9 @@ export default function MainContent({ data, unit, setUnit }) {
           <div className="humidity">
             <h4>Humidity</h4>
             <div className="hightlights-status">
-              <p> {data.main.humidity}</p>
+              <p>
+                <i class="fa-solid fa-water"></i> {data.main.humidity}
+              </p>
               <small>%</small>
             </div>
           </div>
@@ -124,7 +128,9 @@ export default function MainContent({ data, unit, setUnit }) {
           <div className="visibility">
             <h4>Visibility</h4>
             <div className="hightlights-status">
-              <p>{data.visibility}</p>
+              <p>
+                <i class="bx bx-cloud"></i> {data.visibility}
+              </p>
               <small>miles</small>
             </div>
           </div>
@@ -132,7 +138,7 @@ export default function MainContent({ data, unit, setUnit }) {
           <div className="air-pressure">
             <h4>Air Pressure</h4>
             <div className="hightlights-status">
-              <p>{data.main.pressure}</p>
+              <p> {data.main.pressure}</p>
               <small>hPa</small>
             </div>
           </div>
